@@ -1,24 +1,18 @@
-# json.py
+# dates.py
 
-import json
+from datetime import datetime, timedelta
 
-# 1. Преобразовать словарь в JSON строку
-def dict_to_json(data_dict):
-    return json.dumps(data_dict, indent=4)
-
-
-# 2. Преобразовать JSON строку в словарь
-def json_to_dict(json_string):
-    return json.loads(json_string)
+# Получить текущую дату и время
+def get_current_datetime():
+    return datetime.now()
 
 
-# 3. Сохранить словарь в JSON файл
-def save_to_file(data_dict, filename):
-    with open(filename, 'w') as file:
-        json.dump(data_dict, file, indent=4)
+# Добавить дни к дате
+def add_days_to_date(days):
+    return datetime.now() + timedelta(days=days)
 
 
-# 4. Загрузить словарь из JSON файла
-def load_from_file(filename):
-    with open(filename, 'r') as file:
-        return json.load(file)
+# Разница между двумя датами (в днях)
+def date_difference(d1, d2):
+    diff = d2 - d1
+    return diff.days
